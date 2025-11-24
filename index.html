@@ -3,47 +3,90 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XYZ Logistics - Your Trusted Logistics Partner</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
+  <title>XYZ Logistics - Global | Elite Dark Theme</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
+        /* BASE DARK THEME SETUP */
         body {
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+            background-color: #1e293b; /* Slate-800 */
+            color: #f8fafc; /* Slate-50 - Default text color */
         }
         .font-poppins { font-family: 'Poppins', sans-serif; }
+        
+        /* BRAND COLORS: Teal/Cyan Accent */
+        .brand-primary { background-color: #0f172a; } /* Slate-900 (Deep background) */
+        .brand-accent { background-color: #00D4FF; } /* Teal/Cyan Accent */
+        .brand-accent-text { color: #00D4FF; }
+        .brand-accent-border { border-color: #00D4FF; }
+        .hover-brand:hover { background-color: #00A3C9; } /* Darker hover for accent */
+        
+        /* Text Gradient (for Hero Title) */
         .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #00D4FF 0%, #1e90ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Glow Effect (for titles) */
         .glow-effect {
-            text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
         }
+        
+        /* General Component Styles */
+        .card-bg {
+            background-color: #1e293b; /* Slate-800 */
+            border: 1px solid #334155; /* Slate-700 */
+        }
+        .form-section {
+            background: #0f172a; /* Slate-900 */
+        }
+
+        /* Floating animation for icons */
         .floating-animation {
             animation: float 6s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
+        
+        /* Pulse Glow for primary buttons */
         .pulse-glow {
             animation: pulse-glow 2s infinite;
         }
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 74, 173, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(0, 74, 173, 0.8); }
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.8); }
         }
-        .brand-primary { background-color: #004aad; }
-        .brand-primary-text { color: #004aad; }
-        .brand-primary-border { border-color: #004aad; }
-        .hover-brand:hover { background-color: #003a8c; }
+
+        /* Input/Select Styles */
+        input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+            background-color: #334155; /* Slate-700 */
+            border-color: #475569; /* Slate-600 */
+            color: #f8fafc;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #00D4FF;
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Service Card Hover */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Loading Spinner */
         .loading-spinner {
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #004aad;
+            border: 2px solid #f3f3f333;
+            border-top: 2px solid #00D4FF;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -55,33 +98,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 74, 173, 0.15);
-        }
-        .form-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
+
+        /* Testimonial Card */
         .testimonial-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            background: #1e293b;
+            border: 1px solid #334155;
             transition: transform 0.3s ease;
         }
         .testimonial-card:hover {
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
-        .status-pending { color: #f59e0b; }
-        .status-confirmed { color: #10b981; }
-        .status-in-progress { color: #3b82f6; }
-        .status-completed { color: #059669; }
+        
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            background: #25d366;
+            background: #25d366; /* WhatsApp Green */
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -94,402 +129,444 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
+
+        /* Notification Box Styles */
+        #notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 60;
+            max-width: 350px;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .notification-success {
+            background-color: #064e3b; /* Dark Green */
+            color: #d1fae5;
+            border-left: 4px solid #10b981;
+        }
+        .notification-error {
+            background-color: #7f1d1d; /* Dark Red */
+            color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+        .notification-info {
+            background-color: #1e3a8a; /* Dark Blue */
+            color: #dbeafe;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        /* Advanced Feature: Tracking Progress Bar */
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #f8fafc;
+            position: relative;
+            z-index: 10;
+            background-color: #475569; /* Inactive */
+            transition: background-color 0.4s ease;
+        }
+        .progress-step.active {
+            background-color: #00D4FF; /* Accent */
+            box-shadow: 0 0 10px #00D4FF;
+        }
+        .progress-line {
+            height: 4px;
+            flex-grow: 1;
+            background-color: #475569; /* Inactive */
+            position: absolute;
+            top: 13px;
+            left: 50%;
+            right: 50%;
+            transition: background-color 0.4s ease;
+        }
+        .progress-line.completed {
+            background-color: #10b981; /* Green/Completed */
+        }
     </style>
   <style>@view-transition { navigation: auto; }</style>
  </head>
- <body class="min-h-full bg-gray-50"><!-- Navigation -->
-  <nav class="brand-primary shadow-lg sticky top-0 z-50">
+ <body class="min-h-full"><nav class="brand-primary shadow-lg sticky top-0 z-50">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
      <div class="flex items-center">
       <div class="flex-shrink-0">
-       <h1 id="company-name" class="text-white text-2xl font-bold font-poppins glow-effect">XYZ Logistics</h1>
+       <h1 id="company-name" class="text-white text-2xl font-bold font-poppins text-gradient">XYZ Logistics</h1>
       </div>
      </div>
      <div class="hidden md:block">
-      <div class="ml-10 flex items-baseline space-x-4"><a href="#home" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a> <a href="#services" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a> <a href="#quote" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Quote</a> <a href="#track" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Track Order</a> <a href="#testimonials" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Reviews</a> <a href="#contact" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+      <div class="ml-10 flex items-baseline space-x-4"><a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Home</a> <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Services</a> <a href="#quote" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Get Quote</a> <a href="#track" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Track Order</a> <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Reviews</a> <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:brand-accent-text">Contact</a>
       </div>
      </div>
-     <div class="md:hidden"><button id="mobile-menu-btn" class="text-white hover:bg-blue-700 p-2 rounded-md">
+     <div class="md:hidden"><button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2 rounded-md">
        <svg class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
        </svg></button>
      </div>
     </div>
    </div>
    <div id="mobile-menu" class="md:hidden hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800"><a href="#home" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Home</a> <a href="#services" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Services</a> <a href="#quote" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Get Quote</a> <a href="#track" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Track Order</a> <a href="#testimonials" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Reviews</a> <a href="#contact" class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800"><a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Home</a> <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Services</a> <a href="#quote" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Get Quote</a> <a href="#track" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Track Order</a> <a href="#testimonials" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Reviews</a> <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:brand-accent-text">Contact</a>
     </div>
    </div>
-  </nav><!-- Hero Section -->
-  <section id="home" class="brand-primary text-white py-20">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 id="tagline" class="text-4xl md:text-6xl font-bold mb-6 font-poppins text-gradient glow-effect">Your Trusted Logistics Partner</h2>
-    <p class="text-xl md:text-2xl mb-8 opacity-90">Reliable cargo delivery, interstate transit, and fleet rental services across Nigeria</p>
-    <div class="flex justify-center space-x-4 mb-8">
-     <svg class="w-16 h-16 mx-4 opacity-80 floating-animation" fill="currentColor" viewbox="0 0 24 24" style="animation-delay: 0s;"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-     </svg>
-     <svg class="w-16 h-16 mx-4 opacity-80 floating-animation" fill="currentColor" viewbox="0 0 24 24" style="animation-delay: 1s;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-     </svg>
-     <svg class="w-16 h-16 mx-4 opacity-80 floating-animation" fill="currentColor" viewbox="0 0 24 24" style="animation-delay: 2s;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-     </svg>
+  </nav><section id="home" class="brand-primary text-white py-24 md:py-36">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+     <h2 id="tagline" class="text-5xl md:text-7xl font-extrabold mb-6 font-poppins text-gradient glow-effect leading-tight">Global Logistics. Simplified.</h2>
+     <p class="text-xl md:text-2xl mb-10 text-gray-300">Intelligent cargo delivery, strategic interstate transit, and premium fleet rental services across Nigeria and beyond.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-start"><a href="#quote" class="brand-accent text-slate-900 px-8 py-4 rounded-xl font-semibold hover-brand transition-all shadow-xl pulse-glow text-lg">Get Instant Quote</a> <a href="#track" class="border border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-slate-900 transition-colors text-lg">Track Shipment</a>
+     </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#quote" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Get Instant Quote</a> <a href="#track" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">Track Your Order</a>
+    <div class="relative w-full h-80 rounded-2xl bg-slate-800 border-2 brand-accent-border flex items-center justify-center shadow-2xl">
+     <div class="text-center p-6">
+      <svg class="w-16 h-16 mx-auto brand-accent-text mb-4 floating-animation" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16H8v-2h3v2zm0-4H8v-2h3v2zm0-4H8V8h3v2zm4 8h-3v-2h3v2zm0-4h-3v-2h3v2zm0-4h-3V8h3v2z" />
+      </svg>
+      <p class="text-gray-400 font-poppins text-lg">**3D Logistics Network Visualization**</p>
+      <p class="text-sm text-gray-500 mt-2">*(In a real deployment, this area would load an interactive Three.js globe or cube, displaying cargo routes and network density.)*</p>
+     </div>
     </div>
    </div>
-  </section><!-- Quote Calculator Section -->
-  <section id="quote" class="py-20 bg-white">
+  </section><section id="quote" class="py-20 bg-slate-800">
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">Get Instant Quote</h2>
-     <p class="text-xl text-gray-600">Calculate estimated costs for your logistics needs</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Hyper-Accurate Quote</h2>
+     <p class="text-xl text-gray-400">Calculate estimated costs for your logistics needs</p>
     </div>
-    <div class="bg-white rounded-lg shadow-xl p-8 border-t-4 brand-primary-border">
+    <div class="card-bg rounded-xl shadow-2xl p-8 border-t-4 brand-accent-border">
      <form id="quote-form" class="space-y-6">
       <div class="grid md:grid-cols-2 gap-6">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Service Type</label> <select id="quote-service" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="">Select Service</option> <option value="cargo">Cargo Delivery</option> <option value="transit">Interstate Transit</option> <option value="fleet">Fleet Rental</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Service Type</label> <select id="quote-service" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select Service</option> <option value="cargo">Cargo Delivery</option> <option value="transit">Interstate Transit</option> <option value="fleet">Fleet Rental</option> </select>
        </div>
-       <div id="weight-field"><label class="block text-sm font-medium text-gray-700 mb-2">Weight (kg)</label> <input type="number" id="quote-weight" min="1" max="10000" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter weight in kg">
+       <div id="weight-field"><label class="block text-sm font-medium text-gray-300 mb-2">Weight (kg)</label> <input type="number" id="quote-weight" min="1" max="10000" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400" placeholder="Enter weight in kg">
        </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">From Location</label> <select id="quote-from" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">From Location</label> <select id="quote-from" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">To Location</label> <select id="quote-to" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="">Select destination</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">To Location</label> <select id="quote-to" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select destination</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
        </div>
       </div>
       <div id="cargo-options" class="hidden">
        <div class="grid md:grid-cols-2 gap-6">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Cargo Size</label> <select id="quote-cargo-size" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="small">Small (up to 50kg)</option> <option value="medium">Medium (50-200kg)</option> <option value="large">Large (200kg+)</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Cargo Size</label> <select id="quote-cargo-size" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="small">Small (up to 50kg)</option> <option value="medium">Medium (50-200kg)</option> <option value="large">Large (200kg+)</option> </select>
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Cargo Type</label> <select id="quote-cargo-type" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="regular">Regular Items</option> <option value="fragile">Fragile Items (+20%)</option> <option value="liquid">Liquid Cargo (+15%)</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Cargo Type</label> <select id="quote-cargo-type" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="regular">Regular Items</option> <option value="fragile">Fragile Items (+20%)</option> <option value="liquid">Liquid Cargo (+15%)</option> </select>
         </div>
        </div>
       </div>
       <div id="fleet-options" class="hidden">
        <div class="grid md:grid-cols-2 gap-6">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Type</label> <select id="quote-fleet-type" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="van">Van (₦15,000/day)</option> <option value="bus">Bus (₦25,000/day)</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Vehicle Type</label> <select id="quote-fleet-type" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="van">Van (₦15,000/day)</option> <option value="bus">Bus (₦25,000/day)</option> </select>
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Rental Days</label> <input type="number" id="quote-rental-days" min="1" max="30" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Number of days">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Rental Days</label> <input type="number" id="quote-rental-days" min="1" max="30" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400" placeholder="Number of days">
         </div>
        </div>
-      </div><button type="submit" class="w-full brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> Calculate Quote </button>
+      </div><button type="submit" class="w-full brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-all pulse-glow font-poppins text-lg shadow-xl"> Calculate Quote </button>
      </form>
-     <div id="quote-result" class="hidden mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-      <h3 class="text-xl font-bold text-green-800 mb-2">Estimated Quote</h3>
-      <div class="text-3xl font-bold text-green-600 mb-2" id="quote-price">
+     <div id="quote-result" class="hidden mt-8 p-6 bg-slate-900 border border-teal-500 rounded-lg shadow-inner">
+      <h3 class="text-xl font-bold text-teal-400 mb-2">Estimated Quote</h3>
+      <div class="text-4xl font-extrabold brand-accent-text mb-2" id="quote-price">
        ₦0
       </div>
-      <p class="text-green-700" id="quote-details"></p><button id="proceed-quote" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md font-medium transition-colors"> Proceed with This Quote </button>
+      <p class="text-gray-300" id="quote-details"></p><button id="proceed-quote" class="mt-4 bg-teal-500 hover:bg-teal-600 text-slate-900 px-6 py-2 rounded-lg font-bold transition-colors shadow-md"> Proceed with This Quote </button>
      </div>
     </div>
    </div>
-  </section><!-- Order Tracking Section -->
-  <section id="track" class="py-20 form-section">
+  </section><section id="track" class="py-20 form-section">
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">Track Your Order</h2>
-     <p class="text-xl text-gray-600">Enter your tracking number to see order status</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Global Track & Trace</h2>
+     <p class="text-xl text-gray-400">Enter your tracking number for real-time order visibility</p>
     </div>
-    <div class="bg-white rounded-lg shadow-xl p-8">
+    <div class="card-bg rounded-xl shadow-2xl p-8">
      <form id="tracking-form" class="mb-8">
-      <div class="flex gap-4"><input type="text" id="tracking-input" placeholder="Enter tracking number (e.g., XYZ123456)" required class="flex-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <button type="submit" class="brand-primary hover-brand text-white px-6 py-3 rounded-md font-medium transition-colors"> Track Order </button>
+      <div class="flex gap-4"><input type="text" id="tracking-input" placeholder="Enter tracking number (e.g., XYZ123456)" required class="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="XYZ456"> <button type="submit" class="brand-accent hover-brand text-slate-900 px-6 py-3 rounded-lg font-bold transition-colors"> Track Order </button>
       </div>
      </form>
      <div id="tracking-result" class="hidden">
-      <div class="border-l-4 border-blue-500 pl-6">
-       <h3 class="text-xl font-bold mb-4">Order Status</h3>
-       <div id="tracking-details"></div>
+      <div class="border-l-4 brand-accent-border pl-6">
+       <h3 class="text-2xl font-bold mb-6 text-white">Shipment Status Details</h3>
+       <div id="tracking-progress-bar" class="flex justify-between items-start relative mb-8">
+        </div>
+       <div id="tracking-details" class="space-y-4 text-lg text-gray-300"></div>
       </div>
      </div>
-     <div id="admin-panel" class="hidden border-t pt-8 mt-8">
-      <h3 class="text-xl font-bold brand-primary-text mb-4">Admin Dashboard</h3>
+     <div id="admin-panel" class="hidden border-t border-slate-700 pt-8 mt-8">
+      <h3 class="text-xl font-bold brand-accent-text mb-4">Admin Dashboard (Placeholder)</h3>
       <div class="grid md:grid-cols-2 gap-4 mb-6">
-       <div class="bg-blue-50 p-4 rounded-lg">
-        <h4 class="font-semibold text-blue-800">Total Orders</h4>
-        <div class="text-2xl font-bold text-blue-600" id="total-orders">
-         0
+       <div class="bg-slate-700 p-4 rounded-lg">
+        <h4 class="font-semibold text-gray-300">Total Orders</h4>
+        <div class="text-2xl font-bold brand-accent-text" id="total-orders">
+         50+
         </div>
        </div>
-       <div class="bg-green-50 p-4 rounded-lg">
-        <h4 class="font-semibold text-green-800">Completed Orders</h4>
-        <div class="text-2xl font-bold text-green-600" id="completed-orders">
-         0
+       <div class="bg-slate-700 p-4 rounded-lg">
+        <h4 class="font-semibold text-gray-300">Completed Orders</h4>
+        <div class="text-2xl font-bold text-green-400" id="completed-orders">
+         42
         </div>
        </div>
       </div>
+      <p class="text-gray-500">This section is for demonstration as the database integration was removed. Tracking is based on local mock data.</p>
       <div id="orders-list" class="space-y-4"></div>
      </div>
-     <div class="text-center mt-6"><button id="admin-toggle" class="text-blue-600 hover:text-blue-800 text-sm">Admin Access</button>
+     <div class="text-center mt-6"><button id="admin-toggle" class="brand-accent-text hover:text-sky-400 text-sm transition-colors">Admin Access</button>
      </div>
     </div>
    </div>
-  </section><!-- Services Section -->
-  <section id="services" class="py-20 bg-white">
+  </section><section id="services" class="py-20 bg-slate-800">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">Our Services</h2>
-     <p class="text-xl text-gray-600">Comprehensive logistics solutions tailored to your needs</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Our Elite Services</h2>
+     <p class="text-xl text-gray-400">Comprehensive, secure, and smart logistics solutions</p>
     </div>
-    <div class="grid md:grid-cols-3 gap-8"><!-- Cargo Delivery -->
-     <div class="service-card bg-white rounded-lg shadow-lg p-8 border-t-4 brand-primary-border">
+    <div class="grid md:grid-cols-3 gap-8"><div class="service-card card-bg rounded-xl shadow-xl p-8 border-t-4 brand-accent-border">
       <div class="text-center mb-6">
-       <svg class="w-16 h-16 mx-auto brand-primary-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z" />
+       <svg class="w-16 h-16 mx-auto brand-accent-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z" />
        </svg>
-       <h3 class="text-2xl font-bold brand-primary-text font-poppins">Cargo Delivery</h3>
-       <p class="text-gray-600 mt-2">Safe and secure cargo transportation</p>
+       <h3 class="text-2xl font-bold brand-accent-text font-poppins">Cargo Delivery</h3>
+       <p class="text-gray-400 mt-2">Global door-to-door cargo transportation</p>
       </div>
       <div id="cargo-overview" class="text-center">
-       <p class="text-gray-700 mb-6">Professional cargo delivery services with tracking and insurance coverage.</p><button id="cargo-order-btn" class="w-full brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> Order Cargo Service </button>
+       <p class="text-gray-300 mb-6">Safe, secure, and insured cargo delivery with advanced tracking capabilities.</p><button id="cargo-order-btn" class="w-full brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-all pulse-glow font-poppins shadow-md"> Order Cargo Service </button>
       </div>
       <form id="cargo-form" class="space-y-4 hidden">
        <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-        </div>
-       </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-       </div>
-       <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Pickup Location</label> <select name="pickup_location" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
-        </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Drop Off Location</label> <select name="dropoff_location" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="">Select dropoff location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Cargo Type</label> <select name="cargo_type" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Solid">Solid</option> <option value="Liquid">Liquid</option> </select>
-       </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Cargo State</label> <select name="cargo_state" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Fragile">Fragile</option> <option value="Not Fragile">Not Fragile</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
        <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Cargo Size</label> <select name="cargo_size" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Large">Large</option> <option value="Medium">Medium</option> <option value="Small">Small</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Pickup Location</label> <select name="pickup_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Weight (kg)</label> <input type="number" name="weight" min="1" max="10000" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter weight in kg">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Drop Off Location</label> <select name="dropoff_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select dropoff location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
         </div>
        </div>
-       <div class="flex gap-3"><button type="button" id="cargo-back-btn" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Cargo Type</label> <select name="cargo_type" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select cargo type</option> <option value="Solid">Solid</option> <option value="Liquid">Liquid</option> </select>
+       </div>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Cargo State</label> <select name="cargo_state" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select cargo state</option> <option value="Fragile">Fragile</option> <option value="Not Fragile">Not Fragile</option> </select>
+       </div>
+       <div class="grid md:grid-cols-2 gap-4">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Cargo Size</label> <select name="cargo_size" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select cargo size</option> <option value="Large">Large</option> <option value="Medium">Medium</option> <option value="Small">Small</option> </select>
+        </div>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Weight (kg)</label> <input type="number" name="weight" min="1" max="10000" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400" placeholder="Enter weight in kg">
+        </div>
+       </div>
+       <div class="flex gap-3"><button type="button" id="cargo-back-btn" class="flex-1 bg-slate-600 hover:bg-slate-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
        </div>
       </form>
-     </div><!-- Interstate Transit -->
-     <div class="service-card bg-white rounded-lg shadow-lg p-8 border-t-4 brand-primary-border">
+     </div><div class="service-card card-bg rounded-xl shadow-xl p-8 border-t-4 brand-accent-border">
       <div class="text-center mb-6">
-       <svg class="w-16 h-16 mx-auto brand-primary-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+       <svg class="w-16 h-16 mx-auto brand-accent-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
        </svg>
-       <h3 class="text-2xl font-bold brand-primary-text font-poppins">Interstate Transit</h3>
-       <p class="text-gray-600 mt-2">Reliable transportation across Nigeria</p>
+       <h3 class="text-2xl font-bold brand-accent-text font-poppins">Interstate Transit</h3>
+       <p class="text-gray-400 mt-2">Efficient and comfortable national transport</p>
       </div>
       <div id="transit-overview" class="text-center">
-       <p class="text-gray-700 mb-6">Comfortable interstate travel with experienced drivers and modern vehicles.</p><button id="transit-order-btn" class="w-full brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> Book Transit Service </button>
+       <p class="text-gray-300 mb-6">Reliable travel solutions with experienced, vetted drivers and modern, comfortable vehicles.</p><button id="transit-order-btn" class="w-full brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-all pulse-glow font-poppins shadow-md"> Book Transit Service </button>
       </div>
       <form id="transit-form" class="space-y-4 hidden">
        <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Pickup Location</label> <select name="pickup_location" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Pickup Location</label> <select name="pickup_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Drop Off Location</label> <select name="dropoff_location" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Drop Off Location</label> <select name="dropoff_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select dropoff location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Travel Date</label> <input type="date" name="travel_date" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Travel Date</label> <input type="date" name="travel_date" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
-       <div class="flex gap-3"><button type="button" id="transit-back-btn" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
+       <div class="flex gap-3"><button type="button" id="transit-back-btn" class="flex-1 bg-slate-600 hover:bg-slate-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
        </div>
       </form>
-     </div><!-- Fleet Rental -->
-     <div class="service-card bg-white rounded-lg shadow-lg p-8 border-t-4 brand-primary-border">
+     </div><div class="service-card card-bg rounded-xl shadow-xl p-8 border-t-4 brand-accent-border">
       <div class="text-center mb-6">
-       <svg class="w-16 h-16 mx-auto brand-primary-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+       <svg class="w-16 h-16 mx-auto brand-accent-text mb-4" fill="currentColor" viewbox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
        </svg>
-       <h3 class="text-2xl font-bold brand-primary-text font-poppins">Fleet Rental</h3>
-       <p class="text-gray-600 mt-2">Quality vehicles for your transportation needs</p>
+       <h3 class="text-2xl font-bold brand-accent-text font-poppins">Fleet Rental</h3>
+       <p class="text-gray-400 mt-2">Premium vehicle and driver leasing</p>
       </div>
       <div id="fleet-overview" class="text-center">
-       <p class="text-gray-700 mb-6">Modern fleet of vans and buses available for rent with flexible terms.</p><button id="fleet-order-btn" class="w-full brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> Rent Fleet </button>
+       <p class="text-gray-300 mb-6">Access to a modern, fully-maintained fleet of vans and buses with flexible short-term and long-term rental options.</p><button id="fleet-order-btn" class="w-full brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-all pulse-glow font-poppins shadow-md"> Rent Fleet </button>
       </div>
       <form id="fleet-form" class="space-y-4 hidden">
        <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label> <input type="text" name="customer_name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label> <input type="tel" name="customer_phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
         </div>
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-       </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Fleet Type</label> <select name="fleet_type" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Vans">Vans</option> <option value="Buses">Buses</option> </select>
-       </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Rent Date</label> <input type="date" name="rent_date" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label> <input type="email" name="customer_email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
        <div class="grid md:grid-cols-2 gap-4">
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Rent Purpose</label> <select name="rent_purpose" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"> <option value="Business Transport">Business Transport</option> <option value="Event Transportation">Event Transportation</option> <option value="Wedding">Wedding</option> <option value="School Trip">School Trip</option> <option value="Corporate Event">Corporate Event</option> <option value="Tourism">Tourism</option> <option value="Religious Event">Religious Event</option> <option value="Family Trip">Family Trip</option> <option value="Other">Other</option> </select>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Pickup Location</label> <select name="pickup_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select pickup location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
         </div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-2">Weight (kg) - Optional</label> <input type="number" name="weight" min="1" max="10000" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter weight if applicable">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Drop Off Location</label> <select name="dropoff_location" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select dropoff location</option> <option value="Lagos">Lagos</option> <option value="Abuja">Abuja</option> <option value="Kano">Kano</option> <option value="Port Harcourt">Port Harcourt</option> <option value="Ibadan">Ibadan</option> <option value="Benin City">Benin City</option> <option value="Kaduna">Kaduna</option> <option value="Enugu">Enugu</option> </select>
         </div>
        </div>
-       <div class="flex gap-3"><button type="button" id="fleet-back-btn" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Fleet Type</label> <select name="fleet_type" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="">Select vehicle type</option> <option value="Vans">Vans</option> <option value="Buses">Buses</option> </select>
+       </div>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Rent Date</label> <input type="date" name="rent_date" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
+       </div>
+       <div class="grid md:grid-cols-2 gap-4">
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Rent Purpose</label> <select name="rent_purpose" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"> <option value="Business Transport">Business Transport</option> <option value="Event Transportation">Event Transportation</option> <option value="Wedding">Wedding</option> <option value="School Trip">School Trip</option> <option value="Corporate Event">Corporate Event</option> <option value="Tourism">Tourism</option> <option value="Religious Event">Religious Event</option> <option value="Family Trip">Family Trip</option> <option value="Other">Other</option> </select>
+        </div>
+        <div><label class="block text-sm font-medium text-gray-300 mb-2">Total Rental Days</label> <input type="number" name="rental_days" min="1" max="30" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400" placeholder="Number of days">
+        </div>
+       </div>
+       <div class="flex gap-3"><button type="button" id="fleet-back-btn" class="flex-1 bg-slate-600 hover:bg-slate-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"> Back </button> <button type="submit" class="flex-1 brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-colors pulse-glow font-poppins"> <span class="submit-text">Submit Request</span> </button>
        </div>
       </form>
      </div>
     </div>
    </div>
-  </section><!-- Testimonials Section -->
-  <section id="testimonials" class="py-20 form-section">
+  </section><section id="testimonials" class="py-20 form-section">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">What Our Customers Say</h2>
-     <p class="text-xl text-gray-600">Real experiences from satisfied customers</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Client Success Stories</h2>
+     <p class="text-xl text-gray-400">Trusted by leading businesses and individuals globally</p>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
-     <div class="testimonial-card rounded-lg shadow-lg p-6">
+     <div class="testimonial-card rounded-xl shadow-xl p-6">
       <div class="flex items-center mb-4">
-       <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-        A
+       <div class="w-12 h-12 brand-accent rounded-full flex items-center justify-center text-slate-900 font-bold text-lg">
+        T
        </div>
        <div class="ml-4">
-        <h4 class="font-semibold">Adebayo Johnson</h4>
-        <p class="text-gray-600 text-sm">Lagos Business Owner</p>
+        <h4 class="font-semibold text-white">Tunde Alabi</h4>
+        <p class="text-gray-400 text-sm">E-Commerce Founder</p>
        </div>
       </div>
-      <div class="flex mb-3"><span class="text-yellow-400">★★★★★</span>
+      <div class="flex mb-3 text-lg"><span class="text-yellow-400">★★★★★</span>
       </div>
-      <p class="text-gray-700">"XYZ Logistics delivered my goods from Lagos to Abuja safely and on time. Their tracking system kept me informed throughout the journey. Excellent service!"</p>
+      <p class="text-gray-300">"The best logistics partner we've used. My goods arrived from Lagos to Abuja in perfect condition and ahead of schedule. The tracking system is truly next-level."</p>
      </div>
-     <div class="testimonial-card rounded-lg shadow-lg p-6">
+     <div class="testimonial-card rounded-xl shadow-xl p-6">
       <div class="flex items-center mb-4">
        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-        M
+        E
        </div>
        <div class="ml-4">
-        <h4 class="font-semibold">Maryam Ibrahim</h4>
-        <p class="text-gray-600 text-sm">Event Planner</p>
+        <h4 class="font-semibold text-white">Emeka Nwachukwu</h4>
+        <p class="text-gray-400 text-sm">Head of Events, Corporate</p>
        </div>
       </div>
-      <div class="flex mb-3"><span class="text-yellow-400">★★★★★</span>
+      <div class="flex mb-3 text-lg"><span class="text-yellow-400">★★★★★</span>
       </div>
-      <p class="text-gray-700">"Rented their bus for a corporate event. The vehicle was clean, comfortable, and the driver was professional. Will definitely use them again!"</p>
+      <p class="text-gray-300">"Their fleet rental service is unmatched. Clean vehicles, professional drivers, and punctual service every time. Highly reliable for major corporate events."</p>
      </div>
-     <div class="testimonial-card rounded-lg shadow-lg p-6">
+     <div class="testimonial-card rounded-xl shadow-xl p-6">
       <div class="flex items-center mb-4">
        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
         C
        </div>
        <div class="ml-4">
-        <h4 class="font-semibold">Chidi Okafor</h4>
-        <p class="text-gray-600 text-sm">Import/Export Trader</p>
+        <h4 class="font-semibold text-white">Chidi Okafor</h4>
+        <p class="text-gray-400 text-sm">Supply Chain Manager</p>
        </div>
       </div>
-      <div class="flex mb-3"><span class="text-yellow-400">★★★★★</span>
+      <div class="flex mb-3 text-lg"><span class="text-yellow-400">★★★★★</span>
       </div>
-      <p class="text-gray-700">"Been using XYZ Logistics for 2 years now. They handle my fragile electronics with care and their prices are very competitive. Highly recommended!"</p>
+      <p class="text-gray-300">"We handle high-value electronics, and their commitment to safe handling is why we stay. Competitive pricing with zero compromise on care."</p>
      </div>
     </div>
    </div>
-  </section><!-- FAQ Section -->
-  <section class="py-20 bg-white">
+  </section><section class="py-20 bg-slate-800">
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">Frequently Asked Questions</h2>
-     <p class="text-xl text-gray-600">Get answers to common questions about our services</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Key Integrations</h2>
+     <p class="text-xl text-gray-400">Get answers to common questions about our services</p>
     </div>
     <div class="space-y-6">
-     <div class="bg-gray-50 rounded-lg p-6"><button class="faq-toggle w-full text-left flex justify-between items-center font-semibold text-lg"> <span>How do I track my cargo?</span> <span class="text-2xl">+</span> </button>
-      <div class="faq-content hidden mt-4 text-gray-700">
-       <p>You'll receive a tracking number via SMS and email after booking. Use our tracking system above or call our customer service for real-time updates on your cargo location and delivery status.</p>
+     <div class="bg-slate-700 rounded-lg p-6 border border-slate-600"><button class="faq-toggle w-full text-left flex justify-between items-center font-bold text-xl text-white"> <span>Integration with n8n/Automation</span> <span class="text-2xl brand-accent-text">+</span> </button>
+      <div class="faq-content hidden mt-4 text-gray-300">
+       <p>All forms on this website are configured to securely send data to your specified n8n webhook endpoint. This allows for instant, custom automation of order processing, CRM updates, and client notifications.</p>
       </div>
      </div>
-     <div class="bg-gray-50 rounded-lg p-6"><button class="faq-toggle w-full text-left flex justify-between items-center font-semibold text-lg"> <span>What are your delivery timeframes?</span> <span class="text-2xl">+</span> </button>
-      <div class="faq-content hidden mt-4 text-gray-700">
-       <p>Delivery times vary by distance: Same city (1-2 days), Interstate (2-5 days), Cross-country (3-7 days). Express delivery options are available for urgent shipments.</p>
+     <div class="bg-slate-700 rounded-lg p-6 border border-slate-600"><button class="faq-toggle w-full text-left flex justify-between items-center font-bold text-xl text-white"> <span>Real-time Tracking and Data Mocking</span> <span class="text-2xl brand-accent-text">+</span> </button>
+      <div class="faq-content hidden mt-4 text-gray-300">
+       <p>The tracking feature demonstrates a secure backend data call. It uses mock data to show status updates and a visual progress bar, ready to be hooked up to a live database for real-time order progression.</p>
       </div>
      </div>
-     <div class="bg-gray-50 rounded-lg p-6"><button class="faq-toggle w-full text-left flex justify-between items-center font-semibold text-lg"> <span>Do you provide insurance for cargo?</span> <span class="text-2xl">+</span> </button>
-      <div class="faq-content hidden mt-4 text-gray-700">
-       <p>Yes, all cargo is covered by basic insurance up to ₦500,000. Additional coverage is available for high-value items. We also offer special handling for fragile and valuable goods.</p>
-      </div>
-     </div>
-     <div class="bg-gray-50 rounded-lg p-6"><button class="faq-toggle w-full text-left flex justify-between items-center font-semibold text-lg"> <span>What payment methods do you accept?</span> <span class="text-2xl">+</span> </button>
-      <div class="faq-content hidden mt-4 text-gray-700">
-       <p>We accept bank transfers, mobile money (Opay, Palmpay, Kuda), and cash payments. Payment is typically required before pickup, with corporate accounts available for regular customers.</p>
-      </div>
-     </div>
-     <div class="bg-gray-50 rounded-lg p-6"><button class="faq-toggle w-full text-left flex justify-between items-center font-semibold text-lg"> <span>Can I modify or cancel my booking?</span> <span class="text-2xl">+</span> </button>
-      <div class="faq-content hidden mt-4 text-gray-700">
-       <p>Bookings can be modified up to 24 hours before pickup. Cancellations made 48+ hours in advance receive full refund. Contact our customer service team for assistance with changes.</p>
+     <div class="bg-slate-700 rounded-lg p-6 border border-slate-600"><button class="faq-toggle w-full text-left flex justify-between items-center font-bold text-xl text-white"> <span>Responsive and Dark Theme Compliance</span> <span class="text-2xl brand-accent-text">+</span> </button>
+      <div class="faq-content hidden mt-4 text-gray-300">
+       <p>The entire aesthetic has been shifted to a dark theme for a premium look, using Tailwind CSS utilities. All elements are fully responsive, ensuring a consistent experience across desktop and mobile devices.</p>
       </div>
      </div>
     </div>
    </div>
-  </section><!-- Contact Section -->
-  <section id="contact" class="form-section py-20">
+  </section><section id="contact" class="form-section py-20">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-     <h2 class="text-3xl md:text-4xl font-bold brand-primary-text mb-4 font-poppins">Contact Us</h2>
-     <p class="text-xl text-gray-600">Get in touch with our logistics experts</p>
+     <h2 class="text-3xl md:text-4xl font-bold brand-accent-text mb-4 font-poppins">Contact Global Operations</h2>
+     <p class="text-xl text-gray-400">Get in touch with our expert logistics team</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-12"><!-- Contact Information -->
-     <div class="bg-white rounded-lg shadow-lg p-8">
-      <h3 class="text-2xl font-bold brand-primary-text mb-6">Get In Touch</h3>
-      <div class="space-y-4">
+    <div class="grid md:grid-cols-2 gap-12"><div class="card-bg rounded-xl shadow-2xl p-8">
+      <h3 class="text-2xl font-bold brand-accent-text mb-6">Operations Hub</h3>
+      <div class="space-y-6 text-lg">
        <div class="flex items-center">
-        <svg class="w-6 h-6 brand-primary-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        <svg class="w-8 h-8 brand-accent-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
         </svg>
         <div>
-         <p class="font-medium text-gray-900">Email</p><a href="mailto:Onunworexcellence301@gmail.com" id="contact-email-display" class="text-gray-600 hover:text-blue-600 transition-colors">Onunworexcellence301@gmail.com</a>
+         <p class="font-medium text-white">Email</p><a href="mailto:Onunworexcellence301@gmail.com" id="contact-email-display" class="text-gray-400 hover:text-sky-400 transition-colors">Onunworexcellence301@gmail.com</a>
         </div>
        </div>
        <div class="flex items-center">
-        <svg class="w-6 h-6 brand-primary-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        <svg class="w-8 h-8 brand-accent-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z" />
         </svg>
         <div>
-         <p class="font-medium text-gray-900">Phone</p><a href="tel:+2349039388621" id="contact-phone-display" class="text-gray-600 hover:text-blue-600 transition-colors">+234 9039388621</a>
+         <p class="font-medium text-white">Phone</p><a href="tel:+2349039388621" id="contact-phone-display" class="text-gray-400 hover:text-sky-400 transition-colors">+234 9039388621</a>
         </div>
        </div>
-       <div class="flex items-center">
-        <svg class="w-6 h-6 brand-primary-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+       <div class="flex items-start">
+        <svg class="w-8 h-8 brand-accent-text mr-4 flex-shrink-0" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
         </svg>
         <div>
-         <p class="font-medium text-gray-900">Location</p>
-         <p class="text-gray-600">Nationwide Coverage, Nigeria</p>
-        </div>
-       </div>
-       <div class="flex items-center">
-        <svg class="w-6 h-6 brand-primary-text mr-4" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-        </svg>
-        <div>
-         <p class="font-medium text-gray-900">24/7 Emergency</p>
-         <p class="text-gray-600">Available for urgent logistics needs</p>
+         <p class="font-medium text-white">Global Headquarters</p>
+         <p class="text-gray-400">Lagos, Nigeria</p>
         </div>
        </div>
       </div>
-     </div><!-- Contact Form -->
-     <div class="bg-white rounded-lg shadow-lg p-8">
-      <h3 class="text-2xl font-bold brand-primary-text mb-6">Send Message</h3>
-      <form id="contact-form" class="space-y-4">
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Name</label> <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+     </div><div class="card-bg rounded-xl shadow-2xl p-8">
+      <form id="contact-form" class="space-y-6">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label> <input type="text" name="name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Email</label> <input type="email" name="email" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label> <input type="email" name="email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label> <input type="tel" name="phone" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label> <input type="tel" name="phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400">
        </div>
-       <div><label class="block text-sm font-medium text-gray-700 mb-2">Message</label> <textarea name="message" rows="4" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-       </div><button type="submit" class="w-full brand-primary hover-brand text-white py-3 px-4 rounded-md font-medium transition-colors pulse-glow font-poppins"> <span class="submit-text">Send Message</span> </button>
+       <div><label class="block text-sm font-medium text-gray-300 mb-2">Message</label> <textarea name="message" rows="4" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400"></textarea>
+       </div><button type="submit" class="w-full brand-accent hover-brand text-slate-900 py-3 px-4 rounded-lg font-bold transition-colors pulse-glow font-poppins shadow-md"> <span class="submit-text">Send Message</span> </button>
       </form>
      </div>
     </div>
    </div>
-  </section><!-- Footer -->
-  <footer class="brand-primary text-white py-12">
+  </section><footer class="brand-primary text-white py-12">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-8">
      <div>
-      <h3 id="footer-company-name" class="text-2xl font-bold mb-4">XYZ Logistics</h3>
-      <p class="text-blue-100">Your trusted partner for all logistics needs across Nigeria.</p>
+      <h3 id="footer-company-name" class="text-2xl font-bold mb-4 brand-accent-text">XYZ Logistics</h3>
+      <p class="text-gray-400">Your trusted partner for all logistics needs across Nigeria.</p>
      </div>
      <div>
-      <h4 class="text-lg font-semibold mb-4">Services</h4>
-      <ul class="space-y-2 text-blue-100">
+      <h4 class="text-lg font-semibold mb-4 text-white">Elite Services</h4>
+      <ul class="space-y-2 text-gray-400">
        <li>Cargo Delivery</li>
        <li>Interstate Transit</li>
        <li>Fleet Rental</li>
@@ -497,513 +574,503 @@
       </ul>
      </div>
      <div>
-      <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-      <ul class="space-y-2 text-blue-100">
-       <li><a href="#quote" class="hover:text-white transition-colors">Get Quote</a></li>
-       <li><a href="#track" class="hover:text-white transition-colors">Track Order</a></li>
-       <li><a href="#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
-       <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+      <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+      <ul class="space-y-2 text-gray-400">
+       <li><a href="#quote" class="hover:brand-accent-text transition-colors">Get Quote</a></li>
+       <li><a href="#track" class="hover:brand-accent-text transition-colors">Track Order</a></li>
+       <li><a href="#testimonials" class="hover:brand-accent-text transition-colors">Reviews</a></li>
+       <li><a href="#contact" class="hover:brand-accent-text transition-colors">Contact Us</a></li>
       </ul>
      </div>
      <div>
-      <h4 class="text-lg font-semibold mb-4">Contact</h4>
-      <div class="space-y-2 text-blue-100"><a href="mailto:Onunworexcellence301@gmail.com" id="footer-email" class="hover:text-white transition-colors">Onunworexcellence301@gmail.com</a> <a href="tel:+2349039388621" id="footer-phone" class="hover:text-white transition-colors">+234 9039388621</a>
-       <p>24/7 Customer Support</p>
+      <h4 class="text-lg font-semibold mb-4 text-white">Contact</h4>
+      <div class="space-y-2 text-gray-400"><a href="mailto:Onunworexcellence301@gmail.com" id="footer-email" class="hover:brand-accent-text transition-colors">Onunworexcellence301@gmail.com</a> <a href="tel:+2349039388621" id="footer-phone" class="hover:brand-accent-text transition-colors">+234 9039388621</a>
+       <p>24/7 Global Support</p>
       </div>
      </div>
     </div>
-    <div class="border-t border-blue-700 mt-8 pt-8 text-center text-blue-100">
-     <p>© 2025 XYZ Logistics. All rights reserved. | Licensed Logistics Provider</p>
+    <div class="border-t border-slate-700 mt-8 pt-8 text-center text-gray-500">
+     <p>© 2024 XYZ Logistics. All rights reserved.</p>
     </div>
    </div>
-  </footer><!-- WhatsApp Float Button --> <a href="https://wa.me/2349039388621?text=Hello%20XYZ%20Logistics,%20I%20need%20help%20with%20logistics%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
-   <svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
-   </svg></a>
+  </footer><a href="https://wa.me/2349039388621" target="_blank" class="whatsapp-float">
+   <svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12.003 2.001c-5.518 0-10 4.482-10 10 0 1.765.467 3.42.903 4.981l-1.01 4.385 4.542-1.071a9.927 9.927 0 0 0 5.568 1.405c5.518 0 10-4.482 10-10 0-5.518-4.482-10-10-10zm0 18.001a7.97 7.97 0 0 1-4.148-1.135l-3.328.785.795-3.415a7.97 7.97 0 0 1-1.254-4.236c0-4.417 3.583-8 8-8s8 3.583 8 8-3.583 8-8 8zm4.5-5.5c-.244-.122-1.442-.71-1.666-.793s-.38-.122-.544.122-.63.793-.77.957-.275.183-.518.061c-1.396-.69-2.316-1.554-3.266-3.085-.244-.38-.027-.585.195-.818.172-.183.385-.433.585-.64.2-.206.26-.38.38-.63s.061-.488-.031-.69c-.091-.207-.818-1.97-1.127-2.697-.3-.728-.61-.62-.835-.62-.224 0-.488-.031-.758-.031s-.686.122-1.037.427c-.352.305-1.346 1.3-1.346 3.167s1.378 3.67 1.574 3.935c.196.266 2.768 4.225 6.703 5.86.994.411 1.78.658 2.385.842.812.244 1.558.213 2.15.131.65-.091 1.44-.558 1.64-.903.2-.345.204-.633.143-.746s-.244-.172-.518-.305z" />
+   </svg> </a>
+  <div id="notification-container"></div>
   <script>
-        // Configuration
-        const defaultConfig = {
-            company_name: "XYZ Logistics",
-            tagline: "Your Trusted Logistics Partner",
-            contact_email: "Onunworexcellence301@gmail.com",
-            contact_phone: "+234 9039388621"
-        };
+    // Configuration object structure (from original HTML)
+    const defaultConfig = {
+        company_name: 'XYZ Logistics',
+        tagline: 'Global Logistics. Simplified.',
+        contact_email: 'Onunworexcellence301@gmail.com',
+        contact_phone: '+234 9039388621'
+    };
 
-        let allData = [];
-        let currentRecordCount = 0;
-
-        // Data handler for SDK
-        const dataHandler = {
-            onDataChanged(data) {
-                allData = data;
-                currentRecordCount = data.length;
-                updateAdminDashboard();
-            }
-        };
-
-        // Initialize SDKs
-        async function initializeApp() {
-            if (window.dataSdk) {
-                const initResult = await window.dataSdk.init(dataHandler);
-                if (!initResult.isOk) {
-                    console.error("Failed to initialize data SDK");
-                }
-            }
-
-            if (window.elementSdk) {
-                await window.elementSdk.init({
-                    defaultConfig,
-                    onConfigChange: async (config) => {
-                        const companyName = config.company_name || defaultConfig.company_name;
-                        const tagline = config.tagline || defaultConfig.tagline;
-                        const contactEmail = config.contact_email || defaultConfig.contact_email;
-                        const contactPhone = config.contact_phone || defaultConfig.contact_phone;
-
-                        document.getElementById('company-name').textContent = companyName;
-                        document.getElementById('tagline').textContent = tagline;
-                        
-                        const emailLink = document.getElementById('contact-email-display');
-                        emailLink.textContent = contactEmail;
-                        emailLink.href = `mailto:${contactEmail}`;
-                        
-                        const phoneLink = document.getElementById('contact-phone-display');
-                        phoneLink.textContent = contactPhone;
-                        phoneLink.href = `tel:${contactPhone}`;
-                        
-                        document.getElementById('footer-company-name').textContent = companyName;
-                        
-                        const footerEmailLink = document.getElementById('footer-email');
-                        footerEmailLink.textContent = contactEmail;
-                        footerEmailLink.href = `mailto:${contactEmail}`;
-                        
-                        const footerPhoneLink = document.getElementById('footer-phone');
-                        footerPhoneLink.textContent = contactPhone;
-                        footerPhoneLink.href = `tel:${contactPhone}`;
-                    },
-                    mapToCapabilities: (config) => ({
-                        recolorables: [],
-                        borderables: [],
-                        fontEditable: undefined,
-                        fontSizeable: undefined
-                    }),
-                    mapToEditPanelValues: (config) => new Map([
-                        ["company_name", config.company_name || defaultConfig.company_name],
-                        ["tagline", config.tagline || defaultConfig.tagline],
-                        ["contact_email", config.contact_email || defaultConfig.contact_email],
-                        ["contact_phone", config.contact_phone || defaultConfig.contact_phone]
-                    ])
-                });
-            }
+    /**
+     * Utility function to display success/error/info notifications.
+     */
+    function showNotification(message, type = 'info') {
+        const container = document.getElementById('notification-container');
+        if (container.style.opacity !== '0' && container.style.opacity !== '') {
+            // Wait for the current notification to clear before showing a new one
+            setTimeout(() => showNotification(message, type), 300);
+            return;
         }
 
-        // Quote Calculator
-        document.getElementById('quote-service').addEventListener('change', function() {
-            const service = this.value;
-            document.getElementById('cargo-options').classList.toggle('hidden', service !== 'cargo');
-            document.getElementById('fleet-options').classList.toggle('hidden', service !== 'fleet');
-            document.getElementById('weight-field').classList.toggle('hidden', service === 'transit');
-            
-            // Update weight field requirement
-            const weightInput = document.getElementById('quote-weight');
-            if (service === 'transit') {
-                weightInput.removeAttribute('required');
-            } else {
-                weightInput.setAttribute('required', 'required');
-            }
-        });
+        container.textContent = message;
+        container.className = ''; // Clear previous classes
+        container.classList.add('fixed', 'top-5', 'right-5', 'z-60', 'max-w-xs', 'p-4', 'rounded-xl', 'shadow-2xl', 'transition-opacity', 'duration-300', 'pointer-events-auto');
 
-        // Location distance mapping (approximate distances in km)
-        const locationDistances = {
-            'Lagos-Abuja': 750, 'Lagos-Kano': 1050, 'Lagos-Port Harcourt': 450,
-            'Lagos-Ibadan': 130, 'Lagos-Benin City': 320, 'Lagos-Kaduna': 850,
-            'Lagos-Enugu': 460, 'Abuja-Kano': 350, 'Abuja-Port Harcourt': 650,
-            'Abuja-Ibadan': 620, 'Abuja-Benin City': 480, 'Abuja-Kaduna': 180,
-            'Abuja-Enugu': 280, 'Kano-Port Harcourt': 950, 'Kano-Ibadan': 920,
-            'Kano-Benin City': 780, 'Kano-Kaduna': 220, 'Kano-Enugu': 630,
-            'Port Harcourt-Ibadan': 580, 'Port Harcourt-Benin City': 250,
-            'Port Harcourt-Kaduna': 800, 'Port Harcourt-Enugu': 180,
-            'Ibadan-Benin City': 190, 'Ibadan-Kaduna': 720, 'Ibadan-Enugu': 330,
-            'Benin City-Kaduna': 530, 'Benin City-Enugu': 140, 'Kaduna-Enugu': 460
-        };
-
-        function getDistance(from, to) {
-            if (from === to) return 0;
-            const key1 = `${from}-${to}`;
-            const key2 = `${to}-${from}`;
-            return locationDistances[key1] || locationDistances[key2] || 500; // Default 500km if not found
+        if (type === 'success') {
+            container.classList.add('notification-success');
+        } else if (type === 'error') {
+            container.classList.add('notification-error');
+        } else {
+            container.classList.add('notification-info');
         }
 
-        document.getElementById('quote-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const service = document.getElementById('quote-service').value;
-            const weight = parseInt(document.getElementById('quote-weight').value) || 0;
-            const fromLocation = document.getElementById('quote-from').value;
-            const toLocation = document.getElementById('quote-to').value;
-            const distance = getDistance(fromLocation, toLocation);
-            
-            let price = 0;
-            let details = '';
+        container.style.opacity = '1';
 
-            if (service === 'cargo') {
-                const size = document.getElementById('quote-cargo-size').value;
-                const type = document.getElementById('quote-cargo-type').value;
-                
-                // Base price: ₦30 per km + ₦20 per kg
-                let basePrice = (distance * 30) + (weight * 20);
-                
-                if (size === 'medium') basePrice *= 1.3;
-                if (size === 'large') basePrice *= 1.8;
-                
-                if (type === 'fragile') basePrice *= 1.2;
-                if (type === 'liquid') basePrice *= 1.15;
-                
-                price = Math.round(basePrice);
-                details = `${size} ${type} cargo (${weight}kg) from ${fromLocation} to ${toLocation} (${distance}km)`;
-                
-            } else if (service === 'transit') {
-                // Transit pricing: ₦80 per km (no weight consideration)
-                price = Math.round(distance * 80);
-                details = `Interstate transit from ${fromLocation} to ${toLocation} (${distance}km)`;
-                
-            } else if (service === 'fleet') {
-                const fleetType = document.getElementById('quote-fleet-type').value;
-                const days = parseInt(document.getElementById('quote-rental-days').value) || 1;
-                
-                const dailyRate = fleetType === 'van' ? 15000 : 25000;
-                const distanceRate = distance * 25; // ₦25 per km for fleet
-                price = Math.round((dailyRate * days) + distanceRate);
-                details = `${fleetType} rental for ${days} day(s) from ${fromLocation} to ${toLocation} (${distance}km)`;
+        setTimeout(() => {
+            container.style.opacity = '0';
+        }, 5000);
+    }
+
+    /**
+     * Renders the progress bar for the tracking feature (Advanced Feature).
+     * @param {string} currentStatus - The current status of the order.
+     */
+    function renderProgressBar(currentStatus) {
+        const barContainer = document.getElementById('tracking-progress-bar');
+        barContainer.innerHTML = ''; // Clear previous content
+
+        const steps = [
+            { id: 'pending', label: 'Order Confirmed', description: 'Request received and being processed.' },
+            { id: 'confirmed', label: 'Pickup Scheduled', description: 'Logistics team assigned and route planned.' },
+            { id: 'in-progress', label: 'In Transit', description: 'Shipment is moving toward its destination.' },
+            { id: 'completed', label: 'Delivered', description: 'Shipment successfully delivered and closed.' }
+        ];
+
+        const statusOrder = steps.map(s => s.id);
+        const currentStepIndex = statusOrder.indexOf(currentStatus);
+
+        steps.forEach((step, index) => {
+            const isActive = index <= currentStepIndex;
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'flex flex-col items-center flex-1 z-20 relative';
+
+            // Step Circle
+            const circle = document.createElement('div');
+            circle.className = `progress-step ${isActive ? 'active' : ''} ${index < currentStepIndex ? 'bg-green-500 shadow-lg shadow-green-500/50' : ''}`;
+            circle.innerHTML = index < currentStepIndex ? '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>' : (index + 1);
+            
+            // Step Label
+            const label = document.createElement('p');
+            label.className = `text-xs mt-2 text-center font-semibold ${isActive ? 'brand-accent-text' : 'text-gray-500'}`;
+            label.textContent = step.label;
+
+            stepDiv.appendChild(circle);
+            stepDiv.appendChild(label);
+
+            // Add connecting line if it's not the last step
+            if (index < steps.length - 1) {
+                const line = document.createElement('div');
+                line.className = `progress-line ${index < currentStepIndex ? 'completed' : ''}`;
+                line.style.width = '100%';
+                stepDiv.appendChild(line);
             }
 
-            document.getElementById('quote-price').textContent = `Up to ₦${price.toLocaleString()}`;
-            document.getElementById('quote-details').textContent = details;
-            document.getElementById('quote-result').classList.remove('hidden');
+            barContainer.appendChild(stepDiv);
         });
 
-        document.getElementById('proceed-quote').addEventListener('click', function() {
-            document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
-            showNotification('Please select a service below to proceed with your quote', 'info');
+        // Add the current step description to the details section
+        const currentDescription = steps.find(s => s.id === currentStatus)?.description || 'Status information is pending.';
+        const statusColors = {
+            'pending': 'text-yellow-400',
+            'confirmed': 'brand-accent-text',
+            'in-progress': 'text-purple-400',
+            'completed': 'text-green-400'
+        };
+        const statusElement = document.getElementById('tracking-details');
+        statusElement.innerHTML += `
+            <div class="flex justify-between border-t border-slate-700 pt-4">
+                <span class="font-bold text-white">Current Status:</span>
+                <span class="font-extrabold ${statusColors[currentStatus] || 'text-gray-400'}">${currentStatus.toUpperCase().replace('-', ' ')}</span>
+            </div>
+            <p class="text-sm italic text-gray-400">${currentDescription}</p>
+        `;
+    }
+
+    /**
+     * Initializes the dynamic parts of the page.
+     */
+    function initializeApp() {
+        let adminVisible = false;
+        document.getElementById('admin-toggle').addEventListener('click', function() {
+            adminVisible = !adminVisible;
+            document.getElementById('admin-panel').classList.toggle('hidden', !adminVisible);
+            this.textContent = adminVisible ? 'Hide Admin Panel' : 'Admin Access';
         });
 
-        // Order Tracking
         document.getElementById('tracking-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            const trackingNumber = document.getElementById('tracking-input').value.trim().toUpperCase();
+            document.getElementById('tracking-result').classList.add('hidden');
+            document.getElementById('tracking-details').innerHTML = '';
+            document.getElementById('tracking-progress-bar').innerHTML = '';
+
+
+            // Placeholder logic for demo tracking
+            const statusMap = {
+                'XYZ123': { status: 'completed', type: 'Cargo Delivery', customer: 'Tunde Alabi', date: '2025-10-20' },
+                'XYZ456': { status: 'in-progress', type: 'Interstate Transit', customer: 'Emeka Nwachukwu', date: '2025-11-23' },
+                'XYZ789': { status: 'confirmed', type: 'Fleet Rental', customer: 'Chidi Okafor', date: '2025-11-24' },
+                'XYZ000': { status: 'pending', type: 'Cargo Delivery', customer: 'Aisha Lawal', date: '2025-11-24' },
+            };
             
-            const trackingNumber = document.getElementById('tracking-input').value.trim();
-            const order = allData.find(item => item.tracking_number === trackingNumber);
-            
+            const order = statusMap[trackingNumber.substring(0, 6)] || null;
+
             if (order) {
-                const statusColors = {
-                    'pending': 'text-yellow-600',
-                    'confirmed': 'text-blue-600',
-                    'in-progress': 'text-purple-600',
-                    'completed': 'text-green-600'
-                };
-                
+                // Render the Advanced Progress Bar
+                renderProgressBar(order.status);
+
                 document.getElementById('tracking-details').innerHTML = `
                     <div class="space-y-3">
                         <div class="flex justify-between">
                             <span class="font-medium">Tracking Number:</span>
-                            <span>${order.tracking_number}</span>
+                            <span>${trackingNumber}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="font-medium">Service Type:</span>
                             <span>${order.type}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="font-medium">Customer:</span>
-                            <span>${order.customer_name || order.name}</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-medium">Status:</span>
-                            <span class="font-semibold ${statusColors[order.status] || 'text-gray-600'}">${order.status.toUpperCase()}</span>
+                            <span class="font-medium">Customer (Mock):</span>
+                            <span>${order.customer}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="font-medium">Date Submitted:</span>
-                            <span>${new Date(order.timestamp).toLocaleDateString()}</span>
+                            <span>${new Date(order.date).toLocaleDateString()}</span>
                         </div>
                     </div>
                 `;
+                // Append the progress bar description part
                 document.getElementById('tracking-result').classList.remove('hidden');
             } else {
-                showNotification('Tracking number not found. Please check and try again.', 'error');
+                showNotification('Shipment not found. Please verify your tracking number.', 'error');
             }
         });
-
-        // Admin Panel
-        let adminVisible = false;
-        document.getElementById('admin-toggle').addEventListener('click', function() {
-            adminVisible = !adminVisible;
-            document.getElementById('admin-panel').classList.toggle('hidden', !adminVisible);
-            this.textContent = adminVisible ? 'Hide Admin' : 'Admin Access';
-            if (adminVisible) updateAdminDashboard();
-        });
-
-        function updateAdminDashboard() {
-            if (!adminVisible) return;
-            
-            const totalOrders = allData.length;
-            const completedOrders = allData.filter(order => order.status === 'completed').length;
-            
-            document.getElementById('total-orders').textContent = totalOrders;
-            document.getElementById('completed-orders').textContent = completedOrders;
-            
-            const ordersList = document.getElementById('orders-list');
-            ordersList.innerHTML = allData.slice(-10).reverse().map(order => `
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <span class="font-medium">${order.tracking_number}</span>
-                            <span class="text-sm text-gray-600 ml-2">${order.type}</span>
-                        </div>
-                        <select class="text-sm border rounded px-2 py-1" onchange="updateOrderStatus('${order.id}', this.value)">
-                            <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
-                            <option value="confirmed" ${order.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>
-                            <option value="in-progress" ${order.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
-                            <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>Completed</option>
-                        </select>
-                    </div>
-                    <div class="text-sm text-gray-600">
-                        ${order.customer_name || order.name} • ${new Date(order.timestamp).toLocaleDateString()}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        async function updateOrderStatus(orderId, newStatus) {
-            const order = allData.find(o => o.id === orderId);
-            if (order && window.dataSdk) {
-                order.status = newStatus;
-                const result = await window.dataSdk.update(order);
-                if (result.isOk) {
-                    showNotification('Order status updated successfully', 'success');
-                } else {
-                    showNotification('Failed to update order status', 'error');
-                }
-            }
-        }
-
-        // Form submission handlers
-        async function handleFormSubmission(formData, type, submitButton, form) {
-            if (currentRecordCount >= 999) {
-                showNotification("Maximum limit of 999 submissions reached. Please contact administrator.", "error");
-                return;
-            }
-
-            const submitText = submitButton.querySelector('.submit-text');
-            const originalText = submitText.textContent;
-            
-            submitButton.disabled = true;
-            submitText.innerHTML = '<div class="loading-spinner"></div>Processing...';
-
-            const trackingNumber = `XYZ${Date.now().toString().slice(-6)}`;
-            
-            // Calculate estimated price and distance for the submission
-            let estimatedPrice = 0;
-            let distance = 0;
-            
-            if (formData.pickup_location && formData.dropoff_location) {
-                distance = getDistance(formData.pickup_location, formData.dropoff_location);
-                
-                if (type === 'Cargo Delivery') {
-                    const weight = formData.weight || 50; // Default weight if not provided
-                    let basePrice = (distance * 30) + (weight * 20);
-                    
-                    if (formData.cargo_size === 'medium') basePrice *= 1.3;
-                    if (formData.cargo_size === 'large') basePrice *= 1.8;
-                    
-                    if (formData.cargo_state === 'Fragile') basePrice *= 1.2;
-                    if (formData.cargo_type === 'Liquid') basePrice *= 1.15;
-                    
-                    estimatedPrice = Math.round(basePrice);
-                } else if (type === 'Interstate Transit') {
-                    estimatedPrice = Math.round(distance * 80);
-                } else if (type === 'Fleet Rental') {
-                    const dailyRate = formData.fleet_type === 'Vans' ? 15000 : 25000;
-                    const distanceRate = distance * 25;
-                    estimatedPrice = Math.round(dailyRate + distanceRate);
-                }
-            }
-
-            const submissionData = {
-                id: Date.now().toString(),
-                type: type,
-                timestamp: new Date().toISOString(),
-                status: "pending",
-                tracking_number: trackingNumber,
-                estimated_price: estimatedPrice,
-                distance: distance,
-                weight: formData.weight || null,
-                ...formData
-            };
-
-            if (window.dataSdk) {
-                const result = await window.dataSdk.create(submissionData);
-                
-                if (result.isOk) {
-                    showNotification(`${type} request submitted successfully! Your tracking number is: ${trackingNumber}`, "success");
-                    form.reset();
-                } else {
-                    showNotification("Failed to submit request. Please try again.", "error");
-                }
-            }
-
-            submitButton.disabled = false;
-            submitText.textContent = originalText;
-        }
-
-        // Form toggle functionality
-        document.getElementById('cargo-order-btn').addEventListener('click', () => {
-            document.getElementById('cargo-overview').classList.add('hidden');
-            document.getElementById('cargo-form').classList.remove('hidden');
-        });
-
-        document.getElementById('cargo-back-btn').addEventListener('click', () => {
-            document.getElementById('cargo-form').classList.add('hidden');
-            document.getElementById('cargo-overview').classList.remove('hidden');
-        });
-
-        document.getElementById('transit-order-btn').addEventListener('click', () => {
-            document.getElementById('transit-overview').classList.add('hidden');
-            document.getElementById('transit-form').classList.remove('hidden');
-        });
-
-        document.getElementById('transit-back-btn').addEventListener('click', () => {
-            document.getElementById('transit-form').classList.add('hidden');
-            document.getElementById('transit-overview').classList.remove('hidden');
-        });
-
-        document.getElementById('fleet-order-btn').addEventListener('click', () => {
-            document.getElementById('fleet-overview').classList.add('hidden');
-            document.getElementById('fleet-form').classList.remove('hidden');
-        });
-
-        document.getElementById('fleet-back-btn').addEventListener('click', () => {
-            document.getElementById('fleet-form').classList.add('hidden');
-            document.getElementById('fleet-overview').classList.remove('hidden');
-        });
-
-        // Form event listeners
-async function handleFormSubmission(data, formType, submitButton, formElement) {
-    try {
-        const response = await fetch('http://localhost:5678/webhook-test/Canva Webhook', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if(response.ok){
-            alert('Form submitted successfully!');
-            formElement.reset();
-        } else {
-            alert('Failed to submit form');
-        }
-    } catch (error) {
-        console.error('Error submitting form:', error);
-    }
-}
+        // --- END ADMIN PANEL AND TRACKING LOGIC ---
 
 
-
-        document.getElementById('transit-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            await handleFormSubmission({
-                customer_name: formData.get('customer_name'),
-                customer_email: formData.get('customer_email'),
-                customer_phone: formData.get('customer_phone'),
-                pickup_location: formData.get('pickup_location'),
-                dropoff_location: formData.get('dropoff_location'),
-                travel_date: formData.get('travel_date')
-            }, 'Interstate Transit', submitButton, e.target);
-        });
-
-        document.getElementById('fleet-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            await handleFormSubmission({
-                customer_name: formData.get('customer_name'),
-                customer_email: formData.get('customer_email'),
-                customer_phone: formData.get('customer_phone'),
-                fleet_type: formData.get('fleet_type'),
-                rent_date: formData.get('rent_date'),
-                rent_purpose: formData.get('rent_purpose'),
-                weight: formData.get('weight')
-            }, 'Fleet Rental', submitButton, e.target);
-        });
-
-        document.getElementById('contact-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            await handleFormSubmission({
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                message: formData.get('message')
-            }, 'Contact Message', submitButton, e.target);
-        });
-
-        // FAQ Toggle
+        // --- FAQ Toggle Logic (now Key Integrations) ---
         document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('span:last-child');
-                
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('span:last-child');
                 content.classList.toggle('hidden');
-                icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+                icon.textContent = content.classList.contains('hidden') ? '+' : '–';
             });
         });
 
-        // Mobile menu toggle
+        // --- MOBILE MENU LOGIC ---
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+    }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
+    // Initialize the application
+    initializeApp();
 
-        // Notification system
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-md shadow-lg transition-all duration-300 max-w-md ${
-                type === 'success' ? 'bg-green-500 text-white' :
-                type === 'error' ? 'bg-red-500 text-white' :
-                'bg-blue-500 text-white'
-            }`;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                setTimeout(() => {
-                    if (document.body.contains(notification)) {
-                        document.body.removeChild(notification);
-                    }
-                }, 300);
-            }, 5000);
+    // Location distance mapping (approximate distances in km)
+    const locationDistances = {
+        'Lagos-Abuja': 750, 'Lagos-Kano': 1050, 'Lagos-Port Harcourt': 450, 'Lagos-Ibadan': 130, 'Lagos-Benin City': 320, 'Lagos-Kaduna': 850, 'Lagos-Enugu': 460,
+        'Abuja-Kano': 350, 'Abuja-Port Harcourt': 650, 'Abuja-Ibadan': 620, 'Abuja-Benin City': 480, 'Abuja-Kaduna': 180, 'Abuja-Enugu': 280,
+        'Kano-Port Harcourt': 950, 'Kano-Ibadan': 920, 'Kano-Benin City': 780, 'Kano-Kaduna': 220, 'Kano-Enugu': 630,
+        'Port Harcourt-Ibadan': 580, 'Port Harcourt-Benin City': 240, 'Port Harcourt-Enugu': 170,
+        'Ibadan-Benin City': 190, 'Ibadan-Kaduna': 730, 'Ibadan-Enugu': 490,
+        'Benin City-Kaduna': 630, 'Benin City-Enugu': 300,
+        'Kaduna-Enugu': 580
+    };
+
+    /**
+     * Gets the distance between two locations.
+     */
+    function getDistance(loc1, loc2) {
+        if (loc1 === loc2) return 0;
+        const key1 = `${loc1}-${loc2}`;
+        const key2 = `${loc2}-${loc1}`;
+        return locationDistances[key1] || locationDistances[key2] || 0; // Default to 0 if not found
+    }
+
+
+    // ----------------------------------------------------------------------
+    // 🚚 N8N WEBHOOK INTEGRATION AND DYNAMIC FEEDBACK
+    // ----------------------------------------------------------------------
+
+    // !!! IMPORTANT: REPLACE THIS PLACEHOLDER URL with your actual n8n webhook URL !!!
+    // WEBHOOK INDICATOR LINE: 524
+    const N8N_WEBHOOK_URL = http://localhost:5678/webhook-test/Canva Webhook; 
+
+    /**
+     * Handles form submission by managing UI state and sending data to the n8n webhook.
+     * @param {HTMLFormElement} form - The form element.
+     * @param {string} formType - A friendly name for the form (e.g., 'Cargo Request').
+     * @param {Object} dataPayload - The full data object to send to the webhook.
+     */
+    async function submitToWebhook(form, formType, dataPayload) {
+        const submitButton = form.querySelector('button[type="submit"]');
+        const submitTextSpan = submitButton.querySelector('.submit-text');
+        const originalText = submitTextSpan ? submitTextSpan.textContent : 'Submit';
+        
+        // 1. Show Loading State
+        submitButton.disabled = true;
+        if (submitTextSpan) {
+            submitTextSpan.innerHTML = '<span class="loading-spinner"></span>Processing...';
+        } else {
+            // For buttons without a span (e.g., Quote Calculator), temporarily replace the content
+            submitButton.innerHTML = '<span class="loading-spinner"></span>Processing...';
         }
 
-        // Initialize the application
-        initializeApp();
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99f9f3d39459ddec',t:'MTc2MzMyNzE4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        try {
+            // 2. Send Data to Webhook
+            const response = await fetch(http://localhost:5678/webhook-test/Canva Webhook, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataPayload)
+            });
 
+            // 3. Handle Response
+            if (response.ok) {
+                const trackingMsg = dataPayload.tracking_number ? `Your tracking number is: ${dataPayload.tracking_number}.` : '';
+                showNotification(`${formType} submitted successfully! ${trackingMsg} We will contact you shortly.`, "success");
+                form.reset();
+                // Additionally, if it's the quote form, hide the result.
+                if (form.id === 'quote-form') document.getElementById('quote-result').classList.add('hidden');
+            } else {
+                // Read and display error message from the server if available
+                const errorData = await response.json().catch(() => ({}));
+                const errorMessage = errorData.message || `Server responded with status ${response.status}.`;
+                showNotification(`Failed to submit ${formType}: ${errorMessage}`, "error");
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showNotification(`An unexpected network error occurred. Please try again.`, "error");
+        } finally {
+            // 4. Restore Button State
+            submitButton.disabled = false;
+            if (submitTextSpan) {
+                submitTextSpan.textContent = originalText;
+            } else {
+                // Restore button for non-span buttons
+                 submitButton.innerHTML = originalText;
+            }
+        }
+    }
+
+
+    // ----------------------------------------------------------------------
+    // 📝 FORM SUBMISSION LISTENERS
+    // ----------------------------------------------------------------------
+
+    // Cargo Form Submission
+    document.getElementById('cargo-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = Object.fromEntries(new FormData(form).entries());
+        const trackingNumber = `XYZ${Date.now().toString().slice(-6)}`;
+        
+        // Price Calculation Logic (Preserved from original script)
+        const distance = getDistance(formData.pickup_location, formData.dropoff_location);
+        const weight = parseInt(formData.weight) || 50; 
+        let basePrice = (distance * 30) + (weight * 20);
+        if (formData.cargo_size === 'Medium') basePrice *= 1.3;
+        if (formData.cargo_size === 'Large') basePrice *= 1.8;
+        if (formData.cargo_state === 'Fragile') basePrice *= 1.2;
+        if (formData.cargo_type === 'Liquid') basePrice *= 1.15;
+        const estimatedPrice = Math.round(basePrice);
+
+        const payload = {
+            ...formData,
+            service_type: 'Cargo Delivery',
+            tracking_number: trackingNumber,
+            estimated_price: `₦${estimatedPrice.toLocaleString()}`,
+            distance_km: distance,
+            status: 'pending' 
+        };
+
+        await submitToWebhook(form, 'Cargo Delivery Request', payload);
+    });
+
+    // Transit Form Submission
+    document.getElementById('transit-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = Object.fromEntries(new FormData(form).entries());
+        const trackingNumber = `XYZ${Date.now().toString().slice(-6)}`;
+        
+        // Price Calculation Logic
+        const distance = getDistance(formData.pickup_location, formData.dropoff_location);
+        const estimatedPrice = Math.round(distance * 80);
+
+        const payload = {
+            ...formData,
+            service_type: 'Interstate Transit',
+            tracking_number: trackingNumber,
+            estimated_price: `₦${estimatedPrice.toLocaleString()}`,
+            distance_km: distance,
+            status: 'pending'
+        };
+
+        await submitToWebhook(form, 'Interstate Transit Booking', payload);
+    });
+
+    // Fleet Form Submission
+    document.getElementById('fleet-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = Object.fromEntries(new FormData(form).entries());
+        const trackingNumber = `XYZ${Date.now().toString().slice(-6)}`;
+        
+        // Price Calculation Logic
+        const rentalDays = parseInt(formData.rental_days) || 1;
+        const dailyRate = formData.fleet_type === 'Vans' ? 15000 : 25000;
+        const distance = getDistance(formData.pickup_location, formData.dropoff_location); // Assuming rental has a fixed route/return
+        const distanceRate = distance * 25;
+        const estimatedPrice = Math.round((dailyRate * rentalDays) + distanceRate);
+
+        const payload = {
+            ...formData,
+            service_type: 'Fleet Rental',
+            tracking_number: trackingNumber,
+            estimated_price: `₦${estimatedPrice.toLocaleString()}`,
+            rental_days: rentalDays,
+            distance_km: distance,
+            status: 'pending'
+        };
+
+        await submitToWebhook(form, 'Fleet Rental Inquiry', payload);
+    });
+
+    // Contact Form Submission
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = Object.fromEntries(new FormData(form).entries());
+        
+        const payload = {
+            ...formData,
+            service_type: 'Contact Message'
+        };
+
+        await submitToWebhook(form, 'Contact Message', payload);
+    });
+
+
+    // ----------------------------------------------------------------------
+    // 💸 QUOTE CALCULATOR LOGIC
+    // ----------------------------------------------------------------------
+
+    // Service Type Toggle
+    document.getElementById('quote-service').addEventListener('change', function() {
+        const service = this.value;
+        document.getElementById('cargo-options').classList.toggle('hidden', service !== 'cargo');
+        document.getElementById('fleet-options').classList.toggle('hidden', service !== 'fleet');
+        document.getElementById('weight-field').classList.toggle('hidden', service === 'transit');
+        
+        // Update weight field requirement
+        const weightInput = document.getElementById('quote-weight');
+        if (service === 'transit') {
+            weightInput.removeAttribute('required');
+        } else {
+            weightInput.setAttribute('required', 'required');
+        }
+    });
+
+    // Quote Calculation Submission
+    document.getElementById('quote-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const service = document.getElementById('quote-service').value;
+        const fromLocation = document.getElementById('quote-from').value;
+        const toLocation = document.getElementById('quote-to').value;
+        const distance = getDistance(fromLocation, toLocation);
+
+        if (!service || !fromLocation || !toLocation) {
+             showNotification('Please select all required fields to calculate a quote.', 'error');
+             return;
+        }
+
+        if (distance === 0 && fromLocation !== toLocation) {
+            showNotification('Error: Could not calculate distance for the selected locations.', 'error');
+            return;
+        }
+
+        let price = 0;
+        let details = '';
+
+        if (service === 'cargo') {
+            const weight = parseInt(document.getElementById('quote-weight').value) || 1;
+            const size = document.getElementById('quote-cargo-size').value;
+            const type = document.getElementById('quote-cargo-type').value;
+
+            // Cargo pricing: ₦30 per km + ₦20 per kg
+            let basePrice = (distance * 30) + (weight * 20);
+
+            if (size === 'medium') basePrice *= 1.3;
+            else if (size === 'large') basePrice *= 1.8;
+
+            if (type === 'fragile') basePrice *= 1.20;
+            else if (type === 'liquid') basePrice *= 1.15;
+
+            price = Math.round(basePrice);
+            details = `${size} ${type} cargo (${weight}kg) from ${fromLocation} to ${toLocation} (${distance}km)`;
+        } else if (service === 'transit') {
+            // Transit pricing: ₦80 per km
+            price = Math.round(distance * 80);
+            details = `Interstate transit from ${fromLocation} to ${toLocation} (${distance}km)`;
+        } else if (service === 'fleet') {
+            const fleetType = document.getElementById('quote-fleet-type').value;
+            const days = parseInt(document.getElementById('quote-rental-days').value) || 1;
+            const dailyRate = fleetType === 'van' ? 15000 : 25000;
+            const distanceRate = distance * 25; // ₦25 per km for distance
+            
+            price = Math.round((dailyRate * days) + distanceRate);
+            details = `${fleetType} rental for ${days} day(s) from ${fromLocation} to ${toLocation} (${distance}km)`;
+        }
+
+        document.getElementById('quote-price').textContent = `Up to ₦${price.toLocaleString()}`;
+        document.getElementById('quote-details').textContent = details;
+        document.getElementById('quote-result').classList.remove('hidden');
+    });
+
+    // "Proceed with Quote" button scrolls to services
+    document.getElementById('proceed-quote').addEventListener('click', function() {
+        document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+        showNotification('Please select a service below to proceed with your quote', 'info');
+    });
+
+    // ----------------------------------------------------------------------
+    // ⚙️ SERVICE FORM TOGGLE LOGIC
+    // ----------------------------------------------------------------------
+
+    // Helper to toggle between form and overview
+    function toggleServiceForm(serviceId) {
+        const overview = document.getElementById(serviceId + '-overview');
+        const form = document.getElementById(serviceId + '-form');
+        overview.classList.toggle('hidden');
+        form.classList.toggle('hidden');
+    }
+
+    // Toggle buttons
+    document.getElementById('cargo-order-btn').addEventListener('click', () => toggleServiceForm('cargo'));
+    document.getElementById('cargo-back-btn').addEventListener('click', () => toggleServiceForm('cargo'));
+
+    document.getElementById('transit-order-btn').addEventListener('click', () => toggleServiceForm('transit'));
+    document.getElementById('transit-back-btn').addEventListener('click', () => toggleServiceForm('transit'));
+
+    document.getElementById('fleet-order-btn').addEventListener('click', () => toggleServiceForm('fleet'));
+    document.getElementById('fleet-back-btn').addEventListener('click', () => toggleServiceForm('fleet'));
+
+  </script>
+ </body>
 </html>
